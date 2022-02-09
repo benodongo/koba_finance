@@ -1,0 +1,100 @@
+{% extends 'base.html'%}
+{% load humanize %}
+ {% block content %}
+
+<!--================================-->
+<div id="main-wrapper">
+<!--================================-->
+<!-- Breadcrumb Start -->
+<!--================================-->
+<div class="pageheader pd-t-25 pd-b-35">
+    <div class="pd-t-5 pd-b-5">
+        <h1 class="pd-0 mg-0 tx-20 text-overflow">Kobacapital</h1>
+    </div>
+    <div class="breadcrumb pd-0 mg-0">
+        <a class="breadcrumb-item" href="index.html"><i class="fa fa-home"></i> Home</a>
+        <a class="breadcrumb-item" href="#">Loans</a>
+        <span class="breadcrumb-item active">Loan</span>
+    </div>
+</div>
+<!--/ Breadcrumb End -->
+<div class="row row-xs clearfix">
+    <!--================================-->
+    <!-- Basic dataTable Start -->
+    <!--================================-->
+    <div class="col-md-12 col-lg-12">
+        <div class="card mg-b-20">
+            <div class="card-header">
+            <h4 class="card-header-title">
+                Loans
+            </h4>
+          
+            <div class="card-header-btn">
+                <a  href="#" data-toggle="collapse" class="btn card-collapse" data-target="#collapse1" aria-expanded="true"><i class="fa fa-arrow-down"></i></a>
+                <a href="#" data-toggle="refresh" class="btn card-refresh"><i class="fa fa-refresh"></i></a>
+                <a href="#" data-toggle="expand" class="btn card-expand"><i class="fa fa-expand"></i></a>
+                <a href="#" data-toggle="remove" class="btn card-remove"><i class="fa fa-close"></i></a>
+            </div><br>
+           
+            </div>
+            <h4 class="mg-l-20"><a class="btn btn-sm  btn-info" href="{% url 'new_loan' b_id %}">Add Loan</a></h4>
+            <div class="card-body collapse show" id="collapse1">
+                <table id="basicDataTable" class="table responsive nowrap">
+                    <thead>
+                        <tr>
+                            <th>View</th>
+                            
+                            <th>Loan Ref</th>
+                            <th>Pricipal Amount</th>
+                            <th>Release Date</th>
+                            <th>Interest</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for loan in loans %}
+                        <tr>
+                            <td>
+                                <a class="btn btn-sm  btn-success" href="">more</a>
+                                
+                            </td>
+                         
+                            <td>{{loan.loan_ref}}</td>
+                            <td>{{loan.principal_amount | floatformat:2|intcomma}}</td>
+                            <td>{{loan.loan_release_date | date:"d-m-Y"}}</td>
+                            <td>{{loan.loan_interest}}</td>
+                            <td>{{loan.loan_duration}}</td>
+                            <td>{{loan.get_loan_status_display}}</td>
+                            <td> <a  href="{% url 'approve_loan' loan.id %}"><i class="accordion-icon fa fa-edit">Approve</i></a>
+                                <a  href=""><i class="accordion-icon fa fa-delete"></i></a>
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>View</th>
+                           
+                            <th>Loan Ref</th>
+                            <th>Pricipal Amount</th>
+                            <th>Release Date</th>
+                            <th>Interest</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--/ Basic dataTable End -->	
+    <!--================================-->
+
+</div>
+</div>
+<!--/ Main Wrapper End -->
+ {% endblock %}

@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+
+ {% block content %}
+ <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner pd-0-force mg-0-force bg-white">
+                <!--================================-->
+                <!-- User Profile Start -->
+                <!--================================-->
+                <div class="row no-gutters">
+                   <div class="col-12">
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                         <div class="card-body bg-primary pd-y-50">
+                            <div class="row no-gutters">
+                               <div class="col-md-6 mg-t-20">
+                                  <div class="d-flex align-items-center">
+                                     <div class="mr-3">										
+                                        <span class="avatar avatar-lg avatar-online pd-b-20">
+                                        <img src="assets/images/avatar/avatar1.png" class="img-fluid wd-100" alt="">
+                                        </span>
+                                     </div>
+                                     <div class="mg-b-0">
+                                        <h5 class="tx-gray-100 tx-15 mg-b-0">{{ borrower.first_name }} {{borrower.other_name}}</h5>
+                                        <p class="mg-b-10 tx-gray-300">{{borrower.email}}</p>
+                                        <a href="" class="btn btn-sm btn-danger flex-fill mg-r-10">Follow</a>
+                                        <a href="" class="btn btn-sm btn-warning flex-fill">Message</a>
+                                     </div>
+                                  </div>
+                               </div>
+                               <div class="col-md-4 mg-t-10 mg-l-auto">
+                                  <ul class="list-unstyled tx-gray-100 mb-0">
+                                     <li><i class="ti-target mr-2 font-18"></i> <b>Gender </b>: {{borrower.get_gender_display}}</li>
+                                     <li class="mt-2"><i class="ti-mobile mr-2 font-18"></i> <b>phone </b>: {{borrower.mobile}}</li>
+                                     <li class="mt-2"><i class="ti-email mr-2 font-18"></i> <b>Email </b>: {{borrower.email}}</li>
+                                
+                                  </ul>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force bd-b-0-force">
+                         <div class="card-body bg-light">
+                            <div class="row no-gutters">
+                               <div class="col-12">
+                                  <ul class="nav ft-sm-none ft-right" id="pills-tab" role="tablist">
+                                     <li class="nav-item mg-r-10">
+                                        <a class="btn btn-sm btn-label-primary active show" id="nav-activity-tab" data-toggle="pill" href="#my-activity" role="tab" aria-controls="my-activity" aria-selected="false">Personal details</a>
+                                     </li>
+                                     <li class="nav-item mg-r-10">
+                                        <a class="btn btn-sm btn-label-success" id="nav-profile-tab" data-toggle="pill" href="#my-profile" role="tab" aria-controls="my-profile" aria-selected="false">Contact</a>
+                                     </li>
+                                     <li class="nav-item mg-r-10">
+                                        <a class="btn btn-sm btn-label-danger" id="nav-setting-tab" data-toggle="pill" href="#my-setting" role="tab" aria-controls="my-setting" aria-selected="true">Bank details</a>
+                                     </li>
+                                     <li class="nav-item mg-r-10">
+                                        <a class="btn btn-sm btn-label-success active" id="nav-kin-tab" data-toggle="pill" href="#my-kin" role="tab" aria-controls="my-kin" aria-selected="true">kin</a>
+                                     </li>
+                                     <li class="nav-item">
+                                        <a class="btn btn-sm btn-label-warning" id="nav-contact-tab" data-toggle="pill" href="#my-contact" role="tab" aria-controls="my-contact" aria-selected="true">Loans</a>
+                                     </li>
+                                  </ul>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="row no-gutters mg-b-20">
+                   <div class="col-lg-4 col-xl-3 hidden-sm">
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                         <div class="card-body pd-b-0">
+                            <div class="d-flex">
+                               <div class="pd-r-15">
+                                  <span class="avatar avatar-md avatar-online">
+                                  <img src="assets/images/avatar/avatar1.png" class="img-fluid wd-40" alt="">
+                                  </span>
+                               </div>
+                               <div class="mg-t-10">
+                                  <h5 class="tx-15 tx-dark mb-0">John Deo</h5>
+                                  <span class="tx-gray-500">@johndeo352</span>
+                               </div>
+                            </div>
+                            <div class="lead tx-13 mg-y-30">
+                               <p class="d-block mg-y-30 tx-normal">Augue mauris dignissim arcu, ut venenatis metus ante eu orci. Donec non maximus neque, ut finibus ex. <a href="">Read more</a></p>
+                               <div class="clearfix mg-t-20"> 
+                                  <span class="tx-uppercase tx-10 tx-normal">HTML5</span>
+                                  <span class="float-right tx-11">
+                                  <span class="tx-dark tx-normal">90%</span>
+                                  </span>
+                               </div>
+                               <div class="progress ht-5 op-5">
+                                  <div class="progress-bar bg-warning wd-90p" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                               </div>
+                               <div class="clearfix mg-t-20"> 
+                                  <span class="tx-uppercase tx-10 tx-normal">CSS3</span> 
+                                  <span class="float-right tx-11">
+                                  <span class="tx-dark tx-normal">85%</span>
+                                  </span>
+                               </div>
+                               <div class="progress ht-5 op-5">
+                                  <div class="progress-bar bg-danger wd-85p" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                               </div>
+                               <div class="clearfix mg-t-20"> 
+                                  <span class="tx-uppercase tx-10 tx-normal">jQuery</span> 
+                                  <span class="float-right tx-11">
+                                  <span class="tx-dark tx-normal">75%</span>
+                                  </span>
+                               </div>
+                               <div class="progress ht-5 op-5">
+                                  <div class="progress-bar bg-teal wd-75p" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                               </div>
+                               <div class="clearfix mg-t-20"> 
+                                  <span class="tx-uppercase tx-10 tx-normal">Bootstrap</span>
+                                  <span class="float-right tx-11">
+                                  <span class="tx-dark tx-normal">95%</span>
+                                  </span> 
+                               </div>
+                               <div class="progress ht-5 op-5">
+                                  <div class="progress-bar bg-indigo wd-95p" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                               </div>
+                               <div class="clearfix mg-t-20"> 
+                                  <span class="tx-uppercase tx-10 tx-normal">Responsive</span> 
+                                  <span class="float-right tx-11">
+                                  <span class="tx-dark tx-normal">80%</span>
+                                  </span>
+                               </div>
+                               <div class="progress ht-5 op-5">
+                                  <div class="progress-bar bg-pink wd-80p" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                         <div class="card-body pd-b-0">
+                            <label class="tx-10 tx-uppercase tx-dark mg-b-10">Websites &amp; Social Channel</label>
+                            <ul class="list-unstyled profile-info-list">
+                               <li class="pd-y-5"><i class="ti-wordpress tx-16 mr-2"></i><a href="">http://wordpress.com/@username</a></li>
+                               <li class="pd-y-5"><i class="ti-facebook tx-16 mr-2"></i><a href="">http://facebook.com/@username</a></li>
+                               <li class="pd-y-5"><i class="ti-twitter tx-16 mr-2"></i><a href="">http://twitter.com/@username</a></li>
+                               <li class="pd-y-5"><i class="ti-instagram tx-16 mr-2"></i><a href="">http://instagram.com/@username</a></li>
+                               <li class="pd-y-5"><i class="ti-linkedin tx-16 mr-2"></i><a href="">http://linkedin.com/@username</a></li>
+                            </ul>
+                         </div>
+                      </div>
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                         <div class="card-body pd-b-0">
+                            <label class="tx-10 tx-uppercase tx-dark mg-b-10">About Information</label>
+                            <ul class="list-unstyled profile-info-list">
+                               <li class="pd-y-5"><i class="ti-crown tx-16 mr-2"></i><a href="">Works at: G-axon Tech Pvt. Ltd.</a></li>
+                               <li class="pd-y-5"><i class="ti-calendar tx-16 mr-2"></i><a href="">Birthday: Oct 25, 1984</a></li>
+                               <li class="pd-y-5"><i class="ti-world tx-16 mr-2"></i><a href="">Went to: Oxford University</a></li>
+                               <li class="pd-y-5"><i class="ti-map-alt tx-16 mr-2"></i><a href="">Lives in London: From Switzerland</a></li>
+                            </ul>
+                         </div>
+                      </div>
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                         <div class="card-body pd-b-0">
+                            <label class="tx-10 tx-uppercase tx-dark mg-b-10">Contact Information</label>
+                            <ul class="list-unstyled profile-info-list">
+                               <li class="pd-y-5"><i class="ti-home tx-16 mr-2"></i><a href="">Bay Area, San Francisco, CA</a></li>
+                               <li class="pd-y-5"><i class="ti-map tx-16 mr-2"></i><a href="">Westfield, Oakland, CA</a></li>
+                               <li class="pd-y-5"><i class="ti-mobile tx-16 mr-2"></i><a href="">(+1) 012 345 6789</a></li>
+                               <li class="pd-y-5"><i class="ti-headphone-alt tx-16 mr-2"></i><a href="">(+1) 987 654 3201</a></li>
+                            </ul>
+                         </div>
+                      </div>
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                         <div class="card-body pd-b-0">
+                            <label class="tx-10 tx-uppercase tx-dark mg-b-10">Friends List</label>
+                            <ul class="list-unstyled media-list mg-b-15">
+                               <li class="media align-items-center pd-y-5">
+                                  <span class="avatar avatar-online">
+                                  <img src="assets/images/avatar/avatar1.png" class="img-fluid" alt="">
+                                  <i></i>
+                                  </span>
+                                  <div class="pd-l-15">
+                                     <p class="tx-medium mg-b-2"><a href="" class="link-01">Roy Recamadas</a></p>
+                                     <span class="tx-10 tx-gray-500">UI/UX Designer &amp; Developer</span>
+                                  </div>
+                               </li>
+                               <li class="media align-items-center pd-y-5">
+                                  <span class="avatar avatar-online">
+                                  <img src="assets/images/avatar/avatar2.png" class="img-fluid" alt="">
+                                  <i></i>
+                                  </span>
+                                  <div class="pd-l-15">
+                                     <p class="tx-medium mg-b-2"><a href="" class="link-01">Raymart Serencio</a></p>
+                                     <span class="tx-10 tx-gray-500">Full-Stack Developer</span>
+                                  </div>
+                               </li>
+                               <li class="media align-items-center pd-y-5">
+                                  <span class="avatar avatar-online">
+                                  <img src="assets/images/avatar/avatar3.png" class="img-fluid" alt="">
+                                  <i></i>
+                                  </span>
+                                  <div class="pd-l-15">
+                                     <p class="tx-medium mg-b-2"><a href="" class="link-01">Rolando Paloso Jr</a></p>
+                                     <span class="tx-10 tx-gray-500">Licensed Architect</span>
+                                  </div>
+                               </li>
+                               <li class="media align-items-center pd-y-5">
+                                  <span class="avatar avatar-online">
+                                  <img src="assets/images/avatar/avatar4.png" class="img-fluid" alt="">
+                                  <i></i>
+                                  </span>
+                                  <div class="pd-l-15">
+                                     <p class="tx-medium mg-b-2"><a href="" class="link-01">Robert Restificar</a></p>
+                                     <span class="tx-10 tx-gray-500">Business Analyst</span>
+                                  </div>
+                               </li>
+                               <li class="media align-items-center pd-y-5">
+                                  <span class="avatar avatar-online">
+                                  <img src="assets/images/avatar/avatar5.png" class="img-fluid" alt="">
+                                  <i></i>
+                                  </span>
+                                  <div class="pd-l-15">
+                                     <p class="tx-medium mg-b-2"><a href="" class="link-01">Archie Cantones</a></p>
+                                     <span class="tx-10 tx-gray-500">Senior Software Architect</span>
+                                  </div>
+                               </li>
+                            </ul>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-12 col-lg-8 col-xl-9">
+                      <div class="card bd-t-0-force bd-b-0-force pd-t-20">
+                         <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="my-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+                              <div class="card-body pd-0 pd-x-20">
+                                 <h1>Personal information</h1>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="my-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                               <div class="card-body">
+                                  <h2>Contact details here..</h2>
+                               </div>
+                            </div>
+                            <div class="tab-pane fade" id="my-setting" role="tabpanel" aria-labelledby="nav-setting-tab">
+                               <div class="card-body">
+                                  <h3>bank details here ..</h3>
+                               </div>
+                            </div>
+                            <div class="tab-pane fade" id="my-kin" role="tabpanel" aria-labelledby="nav-kin-tab">
+                              <div class="card-body">
+                               <h1>KIN</h1>
+                              </div>
+                           </div>
+                            <div class="tab-pane fade" id="my-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                               <div class="card-body">
+                                 <table id="basicDataTable" class="table responsive nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>View</th>
+                                            <th>Borrower</th>
+                                            <th>Loan Ref</th>
+                                            <th>Pricipal Amount</th>
+                                            <th>Release Date</th>
+                                            <th>Interest</th>
+                                            <th>Duration</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for loan in loans %}
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-sm  btn-success" href="">more</a>
+                                                
+                                            </td>
+                                            <td>{{loan.borrower.first_name}} {{loan.borrower.other_name}}</td>
+                                            <td>{{loan.loan_ref}}</td>
+                                            <td>{{loan.principal_amount | floatformat:2|intcomma}}</td>
+                                            <td>{{loan.loan_release_date | date:"d-m-Y"}}</td>
+                                            <td>{{loan.loan_interest}}</td>
+                                            <td>{{loan.loan_duration}}</td>
+                                            <td>{{loan.get_loan_status_display}}</td>
+                                            <td> <a  href=""><i class="accordion-icon fa fa-edit"></i></a>
+                                                <a  href=""><i class="accordion-icon fa fa-delete"></i></a>
+                                            </td>
+                                            
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>View</th>
+                                            <th>Borrower</th>
+                                            <th>Loan Ref</th>
+                                            <th>Pricipal Amount</th>
+                                            <th>Release Date</th>
+                                            <th>Interest</th>
+                                            <th>Duration</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <!--/ User Profile End -->
+             </div>
+             <!--/ Page Inner End -->
+ {% endblock %}

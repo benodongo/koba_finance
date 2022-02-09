@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+
+ {% block content %}
+         <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner pd-0-force mg-0-force bg-white">
+                <!--================================-->
+                <!-- User Profile Start -->
+                <!--================================-->
+                <div class="row no-gutters">
+                   <div class="col-12">
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                         <div class="card-body bg-primary pd-y-50">
+                            <div class="row no-gutters">
+                               <div class="col-md-6 mg-t-20">
+                                  <div class="d-flex align-items-center">
+                                     <div class="mr-3">										
+                                        <span class="avatar avatar-lg avatar-online pd-b-20">
+                                        <img src="assets/images/avatar/avatar1.png" class="img-fluid wd-100" alt="">
+                                        </span>
+                                     </div>
+                                     <div class="mg-b-0">
+                                        <h5 class="tx-gray-100 tx-15 mg-b-0">Loan Details</h5>
+                                        <p class="mg-b-10 tx-gray-300">Loan Amount : <b>{{loan.principal_amount}}</b></p>
+                                        
+                                     </div>
+                                  </div>
+                               </div>
+                               <div class="col-md-4 mg-t-10 mg-l-auto">
+                                  <ul class="list-unstyled tx-gray-100 mb-0">
+                                     <li><i class="ti-target mr-2 font-18"></i> <b>Loan Ref# </b>: {{loan.loan_ref}}</li>
+                                     <li class="mt-2"><i class="ti-mobile mr-2 font-18"></i> <b>Loan Type </b>{{loan.loan_product.}}</li>
+                                     <li class="mt-2"><i class="ti-headphone-alt mr-2 font-18"></i> <b>Interets Type </b>: (800) 477-1477</li>
+                                    
+                                  </ul>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force bd-b-0-force">
+                         <div class="card-body bg-light">
+                            <div class="row no-gutters">
+                               <div class="col-12">
+                                  <ul class="nav ft-sm-none ft-right" id="pills-tab" role="tablist">
+                                     <li class="nav-item mg-r-10">
+                                        <a class="btn btn-sm btn-label-primary active show" id="nav-activity-tab" data-toggle="pill" href="#my-activity" role="tab" aria-controls="my-activity" aria-selected="false"></a>
+                                     </li>
+                                   
+                                  </ul>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="row no-gutters mg-b-20">
+                   <div class="col-lg-4 col-xl-3 hidden-sm">
+                      <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                         <div class="card-body pd-b-0">
+                            <div class="d-flex">
+                               <div class="pd-r-15">
+                                  <span class="avatar avatar-md avatar-online">
+                                  <img src="assets/images/avatar/avatar1.png" class="img-fluid wd-40" alt="">
+                                  </span>
+                               </div>
+                               <div class="mg-t-10">
+                                  <h5 class="tx-15 tx-dark mb-0">Documents</h5>
+                                  
+                               </div>
+                            </div>
+                            <div class="lead tx-13 mg-y-30">
+                               <p class="d-block mg-y-30 tx-normal">Verify the following submitted documents</p>
+                               <div class="clearfix mg-t-20"> 
+                                  <span class="tx-uppercase tx-10 tx-normal">Borrower Files</span>
+                                  <span class="float-right tx-11">
+                                  <span class="tx-dark tx-normal">90%</span>
+                                  </span>
+                               </div>
+                               <div class="progress ht-5 op-5">
+                                  <div class="progress-bar bg-warning wd-90p" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                               </div>
+                              
+                               
+                               
+                               <div class="progress ht-5 op-5">
+                                  <div class="progress-bar bg-pink wd-80p" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                     
+                   </div>
+                   <div class="col-md-12 col-lg-8 col-xl-9">
+                      <div class="card bd-t-0-force bd-b-0-force pd-t-20">
+                         <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="my-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+                               <div class="card-body pd-0 pd-x-20">
+                                 <div class="profiletimeline mt-0">
+                                    <div class="sl-item">
+                                      <h5 class="text-primary active">Loan Approval Form</h5>
+                                       <div class="sl-right">
+                                          <form method='post'>
+                                             {% csrf_token %}
+                                             
+                                            
+                                             <div class="row">
+                                                <div class="col-sm-6">
+                                                 {{ form.documents_confirmation|as_crispy_field }}
+                                                </div>
+                                                <div class="col-sm-6">
+                                                 {{ form.credit_score_check|as_crispy_field }}
+                                                </div>
+                                            
+                                             </div>
+                                             <div class="row">
+                                                
+                                                <div class="col-sm-12">
+                                                   {{ form.remarks |as_crispy_field }}
+                                                  </div>
+                                             </div>
+                                             <div class="row">
+                                                
+                                                <div class="col-sm-12">
+                                                   {{ form.status |as_crispy_field }}
+                                                  </div>
+                                             </div>
+                                             <button type="submit" class="btn btn-sm btn-custom-primary">Submit</button>
+                                         </form>
+                                       </div>
+                                    </div>
+                                    <hr>
+                                    
+                                 </div>
+                                  
+                                  <div class="profiletimeline mt-0">
+                                     <div class="sl-item">
+                                       <h5 class="text-danger">Previous Loan History</h5>
+                                        <div class="sl-right">
+                                          <table id="basicDataTable" class="table responsive nowrap">
+                                             <thead>
+                                                 <tr>
+                                                     <th>View</th>
+                                                     <th>Borrower</th>
+                                                     <th>Loan Ref</th>
+                                                     <th>Pricipal Amount</th>
+                                                     <th>Release Date</th>
+                                                     <th>Interest</th>
+                                                     <th>Duration</th>
+                                                     <th>Status</th>
+                                                     <th>Action</th>
+                                                 </tr>
+                                             </thead>
+                                             <tbody>
+                                                 {% for loan in loans %}
+                                                 <tr>
+                                                     <td>
+                                                         <a class="btn btn-sm  btn-success" href="">more</a>
+                                                         
+                                                     </td>
+                                                     <td>{{loan.borrower.first_name}} {{loan.borrower.other_name}}</td>
+                                                     <td>{{loan.loan_ref}}</td>
+                                                     <td>{{loan.principal_amount | floatformat:2|intcomma}}</td>
+                                                     <td>{{loan.loan_release_date | date:"d-m-Y"}}</td>
+                                                     <td>{{loan.loan_interest}}</td>
+                                                     <td>{{loan.loan_duration}}</td>
+                                                     <td>{{loan.get_loan_status_display}}</td>
+                                                     <td> <a  href=""><i class="accordion-icon fa fa-edit"></i></a>
+                                                         <a  href=""><i class="accordion-icon fa fa-delete"></i></a>
+                                                     </td>
+                                                     
+                                                 </tr>
+                                                 {% endfor %}
+                                             </tbody>
+                                             <tfoot>
+                                                 <tr>
+                                                     <th>View</th>
+                                                     <th>Borrower</th>
+                                                     <th>Loan Ref</th>
+                                                     <th>Pricipal Amount</th>
+                                                     <th>Release Date</th>
+                                                     <th>Interest</th>
+                                                     <th>Duration</th>
+                                                     <th>Status</th>
+                                                     <th>Action</th>
+                                                 </tr>
+                                             </tfoot>
+                                         </table>
+                                        </div>
+                                     </div>
+                                     <hr>
+                                     
+                                  </div>
+                               </div>
+                            </div>
+                           
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <!--/ User Profile End -->
+             </div>
+             <!--/ Page Inner End -->
+             <!--================================-->
+ {% endblock %}

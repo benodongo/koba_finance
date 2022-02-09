@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+ {% block content %}
+  <!-- Main Wrapper Start -->
+               <!--================================-->
+               <div id="main-wrapper">
+                <!--================================-->
+                <!-- Breadcrumb Start -->
+                <!--================================-->
+                <div class="pageheader pd-t-25 pd-b-35">
+                   <div class="pd-t-5 pd-b-5">
+                      <h1 class="pd-0 mg-0 tx-20 text-overflow">Borrowers</h1>
+                   </div>
+                   <div class="breadcrumb pd-0 mg-0">
+                      <a class="breadcrumb-item" href="index.html"><i class="icon ion-ios-home-outline"></i> Home</a>
+                      <a class="breadcrumb-item" href="#">Borrowers</a>
+                      <span class="breadcrumb-item active">Add New</span>
+                   </div>
+                </div>
+                <!--/ Breadcrumb End -->
+                <div class="row row-xs clearfix">
+                   <!--================================-->
+                   <!-- Basic wizard Start -->
+                   <!--================================-->
+                   <div class="col-md-12 col-lg-12">
+                     <div class="card mg-b-20">
+                        <div class="card-header">
+                           <h4 class="card-header-title">
+                              New Borrower
+                           </h4>
+                           <div class="card-header-btn">
+                             
+                           </div>
+                        </div>
+                        <div class="card-body collapse show" id="collapse1">
+                           <form action="" method="post" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.first_name|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.other_name|as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.title|as_crispy_field }}
+                                 </div>
+                                
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.business_name|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.gender|as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.dob|as_crispy_field }}
+                                 </div>
+                                
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.mobile|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.email|as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.nationality|as_crispy_field }}
+                                 </div>
+                                
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.marital_status|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.number_of_children|as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.number_of_dependants |as_crispy_field }}
+                                 </div>
+                                
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.id_number|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.id_upload|as_crispy_field }}
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.kra_pin|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.pin_upload |as_crispy_field }}
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.credit_score |as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.borrower_photo |as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.borrower_files |as_crispy_field }}
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.description |as_crispy_field }}
+                                 </div>
+                                 
+                              </div>
+                           
+                              <input type="submit" value="{% trans 'submit' %}" class="btn btn-primary"/>
+                            </form>
+                        </div>
+                     </div>
+                  </div>
+                
+                
+                   <!--/ Basic wizard  End -->	
+                   <!--================================-->
+               
+            		
+                </div>
+             </div>
+             <!--/ Main Wrapper End -->
+ {% endblock %}

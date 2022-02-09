@@ -1,0 +1,96 @@
+{% extends 'base.html'%}
+ {% block content %}
+
+<!--================================-->
+<div id="main-wrapper">
+<!--================================-->
+<!-- Breadcrumb Start -->
+<!--================================-->
+<div class="pageheader pd-t-25 pd-b-35">
+    <div class="pd-t-5 pd-b-5">
+        <h1 class="pd-0 mg-0 tx-20 text-overflow">Kobacapital</h1>
+    </div>
+    <div class="breadcrumb pd-0 mg-0">
+        <a class="breadcrumb-item" href="index.html"><i class="fa fa-home"></i> Home</a>
+        <a class="breadcrumb-item" href="#">Borrowers</a>
+        <span class="breadcrumb-item active">All</span>
+    </div>
+</div>
+<!--/ Breadcrumb End -->
+<div class="row row-xs clearfix">
+    <!--================================-->
+    <!-- Basic dataTable Start -->
+    <!--================================-->
+    <div class="col-md-12 col-lg-12">
+        <div class="card mg-b-20">
+            <div class="card-header">
+            <h4 class="card-header-title">
+                Borrowers
+            </h4>
+            <div class="card-header-btn">
+                <a  href="#" data-toggle="collapse" class="btn card-collapse" data-target="#collapse1" aria-expanded="true"><i class="fa fa-arrow-down"></i></a>
+                <a href="#" data-toggle="refresh" class="btn card-refresh"><i class="fa fa-refresh"></i></a>
+                <a href="#" data-toggle="expand" class="btn card-expand"><i class="fa fa-expand"></i></a>
+                <a href="#" data-toggle="remove" class="btn card-remove"><i class="fa fa-close"></i></a>
+            </div>
+            </div>
+            <div class="card-body collapse show" id="collapse1">
+            <table id="basicDataTable" class="table responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>View</th>
+                        <th>Fullname</th>
+                        <th>Unique#</th>
+                        <th>Mobile</th>
+                        <th>Available Balance</th>
+                        <th>Total Paid</th>
+                        <th>Group</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for borrower in borrowers %}
+                    <tr>
+                        <td>
+                            <a class="btn btn-sm  btn-success" href="{% url 'my_loans' borrower.id %}">loans</a>
+                            <a class="btn btn-sm btn-primary " href="{% url 'borrower_profile' borrower.id %}">view</a>
+                        </td>
+                        <td>{{borrower.first_name}} {{borrower.other_name}}</td>
+                        <td>{{borrower.reference}}</td>
+                        <td>{{borrower.mobile}}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td></td>
+                        <td>Post maturity</td>
+                        <td> <a  href=""><i class="accordion-icon fa fa-edit"></i></a>
+                            <a  href=""><i class="accordion-icon fa fa-delete"></i></a>
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>View</th>
+                        <th>Fullname</th>
+                        <th>Unique#</th>
+                        <th>Mobile</th>
+                        <th>Available Balance</th>
+                        <th>Total Paid</th>
+                        <th>Group</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+        </div>
+    </div>
+    <!--/ Basic dataTable End -->	
+    <!--================================-->
+
+</div>
+</div>
+<!--/ Main Wrapper End -->
+ {% endblock %}

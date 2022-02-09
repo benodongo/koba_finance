@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+ {% block content %}
+  <!-- Main Wrapper Start -->
+               <!--================================-->
+               <div id="main-wrapper">
+                <!--================================-->
+                <!-- Breadcrumb Start -->
+                <!--================================-->
+                <div class="pageheader pd-t-25 pd-b-35">
+                   <div class="pd-t-5 pd-b-5">
+                      <h1 class="pd-0 mg-0 tx-20 text-overflow">Loans</h1>
+                   </div>
+                   <div class="breadcrumb pd-0 mg-0">
+                      <a class="breadcrumb-item" href="index.html"><i class="fa fa-home"></i> Home</a>
+                      <a class="breadcrumb-item" href="#">Loans</a>
+                      <span class="breadcrumb-item active">Add New</span>
+                   </div>
+                </div>
+                <!--/ Breadcrumb End -->
+                <div class="row row-xs clearfix">
+                   <!--================================-->
+                  <!-- Basic Form Start -->
+                     <!--================================-->
+                     <div class="col-md-12 col-lg-12">
+                        <div class="card mg-b-20">
+                           <div class="card-header">
+                              <h4 class="card-header-title">
+                                 Add New
+                              </h4>
+                              <div class="card-header-btn">
+                                 <a  href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse1" aria-expanded="true"><i class="fa fa-arrow-down"></i></a>
+                                 <a href="" data-toggle="refresh" class="btn card-refresh"><i class="fa fa-refresh"></i></a>
+                                 <a href="" data-toggle="expand" class="btn card-expand"><i class="fa fa-expand"></i></a>
+                                 <a href="" data-toggle="remove" class="btn card-remove"><i class="fa fa-close"></i></a>
+                              </div>
+                           </div>
+                           <div class="card-body collapse show" id="collapse1">
+                            <form method='post'>
+                                {% csrf_token %}
+                                <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.loan_product|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.means_disbursed|as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.principal_amount|as_crispy_field }}
+                                 </div>
+                                
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.loan_release_date|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.interest_method|as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.interest_type|as_crispy_field }}
+                                 </div>
+                                
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.loan_interest|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.rate_cycle|as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.loan_duration|as_crispy_field }}
+                                 </div>
+                                
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg">
+                                    {{ form.repayment_cycle|as_crispy_field }}
+                                 </div>
+                                 <!-- col -->
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.number_of_repayments|as_crispy_field }}
+                                 </div>
+                                 <div class="col-lg mg-t-10 mg-lg-t-0">
+                                    {{ form.loan_application_fee|as_crispy_field }}
+                                 </div>
+                                
+                              </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                           </div>
+                        </div>
+                     </div>
+                     <!--/ Basic Form End -->	
+               
+            		
+                </div>
+             </div>
+             <!--/ Main Wrapper End -->
+ {% endblock %}
